@@ -515,3 +515,96 @@ $$
   - Variance: Population varience and sample varience.
   - Standard deviation.
 - Impact of adding a constant or multiplying with a constant on measures.
+
+# Describing Numerical Data : Percentiles, Quartiles, and Interquartile range
+
+## $Percentiles:$
+
+- The sample $100p$ percentile is that data value having the property that atleast $100p$ percent of data are less than or equal to it and atleast $100(1-p)$ percent of the data values are greater than or equal to it.
+
+### Computing percentile
+
+- To find the sample 100p percentile of a data set of size n
+  - Arrange te data in increasing order.
+  - If np is not an integer, determine te smallest integer greater than np. The data value in that position is the sample 100p percentile.
+  - If np is an integer, then the average of values in positions np and np+1 is the sample 100p percentile.
+
+### Example 
+
+Let $n=10$
+
+- Arrange the data in ascending order 35, 38, 47, 58, 61, 66, 68, 68, 70, 79
+
+<center>
+
+|p|np||
+|-|-|-|
+|0.1|1|(35+38)/2=36.5|
+|0.25|2.5|47|
+|0.5|5|(61+66)/2=63.5|
+|0.75|7.5|68|
+|1|10|70|
+
+</center>
+
+### Computing percentile in googlesheets
+
+- $Step\ 1:$ Paste the dataset in a column
+- $Step\ 2:$ In a blank cell enter PERCENTILE(data,percentile), where data indicates the range of data which percentile needs to be computed, and percentile is the decimal form of the desired percentile.
+  - For example if the data is in cell A1:A10, and we are interested in computing the $90^{th}$ percentile, then enter PERCENTILE(A1:A10,0.9)
+
+### Computing percentile using googlesheets-algorithm
+
+- $Step\ 1:$ Arrange the data in increasing order.
+
+<center>
+
+|Order|1|2|3|4|5|6|7|8|9|10|
+|-|-|-|-|-|-|-|-|-|-|-|
+|$x_{[i]}$|$x_{[1]}$|$x_{[2]}$|$x_{[3]}$|$x_{[4]}$|$x_{[5]}$|$x_{[6]}$|$x_{[7]}$|$x_{[8]}$|$x_{[9]}$|$x_{[10]}$|
+|Data|35|38|47|58|61|66|68|68|70|79|
+
+</center>
+
+- $Step\ 2:$ Find rank using the following formula.
+  - $rank = percentile\times (n-1) + 1$ where n is total number of observations in the dataset.
+    - $Example:$ to compute 25 percentile of a set of n=10 observations, $rank = 0.25\times(10-1)+1=3.25$
+- $Step\ 3:$ Split the rank into integer part and fractional part.
+  - Integer part of 3.25 is 3; fractional part is 0.25.
+- $Step\ 4:$ Compute the ordered data value $x_{[i]}$ corresponding to the integer part rank.
+  - The ordered data value corresponding to integer part rank of 3, $x_{[3]}$ is 47.
+- $Step\ 5:$ The percentile value is given by the formula
+  - $Percentile = x_{[i]}+fractional\ part\times [x_{[i+1]}-x_{[i]}]$
+    - $Percentile=47+0.25\times[58-47]=47+0.25\times 11= 47+2.75=49.75$
+
+## Quartiles
+
+- $Defination:$ The sample 25th percentile is called the first quartile. The sample 50th percentile is called the second quartile or the median. The sample 75th percentile is called the third quartile.
+
+In other words, quartiles break up a dataset into four parts with about 25 percent of the data values being less than the first(lower) quartile, about 25 percent being between first and second quartiles, about 25 percent being between second and third(upper) quartiles, and about 25 percent being larger than the third quartile.
+
+### Five Number summery
+
+- Minimum
+- $Q_1:$ First quartile or Lower quartile
+- $Q_2:$ Second quartile or Median
+- $Q_3:$ Third quartile or Upper quartile
+- Maximum
+
+## The Interquartile range
+
+- $Definatiion:$ The interquartile range, IQR, is the difference between the first and the third quartiles; that is,
+- $IQR=Q_3-Q_1$
+- IQR for the example 
+  - First quartile: $Q_1=49.75$
+  - Third quartile: $Q_3=68$
+  - $IQR=Q_3-Q_1=18.25$
+
+## Sectional Summery
+
+- Defination of percentiles.
+- How to compute percentiles.
+- Defination of quartile.
+- Five-number summery.
+- Interquartile range as a measure of dispersion.
+
