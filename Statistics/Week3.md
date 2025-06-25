@@ -423,4 +423,93 @@ Another measure of central tendency is the sample mode.
   - The denominator for computing population varience is N, the total number of observations.
   - The denominator for computing sample varience is $(n-1)$. The reason for this will be clear in forthcoming courses on statistics.
 
+- Recall marks of ten students obatained in an exam is
+  - 68, 79, 38, 68, 35, 70, 61, 47, 58, 66
 
+<center>
+
+||Data|Deviation from mean|Squared deviations|
+|--|--|--|--|
+|1|68|9|81|
+|2|79|20|400|
+|3|38|-21|441|
+|4|68|9|81|
+|5|35|-24|576|
+|6|70|11|121|
+|7|61|2|4|
+|8|47|-12|144|
+|9|58|-1|1|
+|10|66|-7|49|
+|Total|590|0|1898|
+
+|Sample Varience|$1898\div 9=210.88\dots$|
+|-|-|
+
+</center>
+
+### Adding a constant
+
+- Let $y_i=x_i+c$ where c is a constant then new varience = old varience
+
+$$
+\sum_{i=1}^{n}((x_i+c)-(\bar{x}+c))^2 = \sum_{i=1}^{n}(x_i-\bar{x})^2 
+$$
+
+### $Example:$ 
+
+- Recall marks of ten students obatained in an exam is
+  - 68, 79, 38, 68, 35, 70, 61, 47, 58, 66
+- Suppose the teacher has decided to add 5 marks to each student
+  - New data becomes : 73, 84, 43, 73, 40, 75, 66, 52, 63, 71
+- The varience of the new dataset is: $1898/9=210.88$
+- In general adding a constant doesn't change te variability of a dataset, and hence the varience is same.
+
+### Multiplying a constant
+
+- Let $y_i=x_i\times c$ where c is a constant then $new\ varience = c^2\times old\ varience$
+
+$$
+\sum_{i=1}^{n}((x_i\times c)-(\bar{x}\times c))^2 = \sum_{i=1}^{n}(c\times(x_i-\bar{x}))^2 =c^2\times \sum_{i=1}^{n}\times(x_i-\bar{x})^2 
+$$
+
+### $Example:$ 
+
+- Recall marks of ten students obatained in an exam is
+  - 68, 79, 38, 68, 35, 70, 61, 47, 58, 66
+- Suppose the teacher has decided to scale down each marks by 40%, in other words each mark is multiplied by 0.4
+  - New data becomes : 27.2, 31.6, 15.2, 27.2, 14, 28, 24.4, 18.8, 23.2, 26.4
+    - The mean of new dataset is 23.6
+- The varience of the new dataset is: $303.68/9=33.74$. we can varify that $33.74=(0.4)^2\times 210.88$
+
+## Standart deviation 
+
+- Another very useful measure of dispersion is the standard deviation.
+- $Defination:$ The quantity 
+$$
+s = \sqrt{\frac{(x_1-\bar{x})^2+(x_2-\bar{x})^2+\dots+(x_n-\bar{x})^2}{n-1}}
+$$
+
+- which is the sqaure root of the sample varience is the sample standard deviation.
+
+### Units of standard deviation
+
+- The sample varience is expressed in units of square units of original variable. For example, instead of marks if the data were weigts of 10 students measured in kilograms. Then the unit of varience would be $(kilogram)^2$
+- The sample standard deviation is measured in the same units as the original data. That is, for instance, if the data are in $kilograms$, then the units of standard deviation are also in $kilograms$.
+
+### Adding a constant 
+
+- Let $y_i=x_i+c$ where c is a constant then new varience = old varience
+- So the new sqaure root of the sample varience (new standard deviation) is also = old standard deviation
+
+### Multiplying a constant
+
+- Let $y_i=x_i\times c$ where c is a constant then $new\ varience = c^2\times old\ varience$
+- So the new sqaure root of the sample varience (new standard deviation)  = $c \times old\ standard\ deviation$
+
+## Section Summery
+
+- Measures of dispersion
+  - Range.
+  - Variance: Population varience and sample varience.
+  - Standard deviation.
+- Impact of adding a constant or multiplying with a constant on measures.
