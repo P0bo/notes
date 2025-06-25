@@ -104,22 +104,23 @@ xychart-beta
 
 ```chart
 {
- "type": "bar",
- "data": {
-     "labels": ["30-40", "40-50", "50-60", "60-70", "70-80", "80-90"],
-     "datasets": [{
-         "label": "Frequency",
-         "data": [3, 6, 18, 17, 4, 2],
-         "backgroundColor": "rgba(29, 133, 255)",
-         "borderColor": "rgba(5, 1, 2, 1)",
-         "borderWidth": 1,
-         "barPercentage":1,
-         "categoryPercentage":1
+  "type": "bar",
+    "data": {
+      "labels": ["0-30","30-40","40-50","50-60","60-70","70-80","80-90"],
+      "datasets": [{
+        "label": "Frequency",
+        "data": [0, 3, 6, 18, 17, 4, 2],
+        "backgroundColor": "rgba(29, 133, 255)",
+        "borderColor": "rgba(5, 1, 2, 1)",
+        "borderWidth": 1,
+        "barPercentage":1,
+        "categoryPercentage":1,
+        "beginAtZero": true
      }]
- },
- "options": {}
+  }
 }
 ```
+
 </center>
 
 ## Stem and Leaf diagram
