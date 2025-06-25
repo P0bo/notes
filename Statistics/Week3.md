@@ -485,9 +485,11 @@ $$
 
 - Another very useful measure of dispersion is the standard deviation.
 - $Defination:$ The quantity 
+
 $$
 s = \sqrt{\frac{(x_1-\bar{x})^2+(x_2-\bar{x})^2+\dots+(x_n-\bar{x})^2}{n-1}}
 $$
+
 
 - which is the sqaure root of the sample varience is the sample standard deviation.
 
