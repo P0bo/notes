@@ -7,22 +7,23 @@ Exiting a iteration basesd on specific condition
     - We would have to match food and apparel in the items category list and exit after that, so we don't need to iterate after we are done wit our objective and we can exit the loop.
   - Suppose We want to find the fist verb in the third line. We have to keep track of line number first, When we reached the third line then we start looking for the verb and exit after we find the verb.
 
-```flowchart
-e=>end
-op1=>operation: Found= False
-op2=>operation: Found= True
-op3=operation: Other operations
-cond1=>condition: Anoter card and not(Found)
-cond2=>condition: Correct card
+```mermaid
+flowchart TD
+    e[End]
+    op1[Found= False]
+    op2[Found= True]
+    op3[Other operations]
+    cond1{Another card and not(Found)}
+    cond2{Correct card}
 
-op1->cond1
-cond1(yes,bottom)->cond2
-cond1(no,rigt)->e
-cond2(yes,rigt)->op2
-cond2(no,bottom)->op3
-op2->op3
-op3(left)->cond1
-```
+    op1 --> cond1
+    cond1 -- Yes --> cond2
+    cond1 -- No --> e
+    cond2 -- Yes --> op2
+    cond2 -- No --> op3
+    op2 --> op3
+    op3 --> cond1
+````
 
 # $L2.2:$ Local operations and max in a single iteration (Part 1)
 
@@ -196,4 +197,317 @@ This is also an example of an iterator with filter in it. The filter compares th
 
 # $L2.7:$ Max in a single iteration witout losing information and applications of frequency count.
 
-- Suppose we want to find out 
+- Suppose we want to find out the max Math marks and the card ID which got the max Math marks.
+  - We keep track of two variables `maxMaths=0` and `maxCardNo=-1`
+
+<center>
+
+|maxMaths|~~0~~|~~68~~|~~87~~|97|
+|-|-|-|-|-|
+
+|maxCardNo|~~-1~~|~~0~~|~~4~~|11,23|
+|-|-|-|-|-|
+
+</center>
+
+- From the word count example from $L2.6$ the words that occur more than once are
+
+<center>
+
+|Word|it|was|monday|to|his|he|the|of|and|
+|-|-|-|-|-|-|-|-|-|-|
+|Frequency|2|3|3|2|2|2|6|3|3|
+
+</center>
+
+- Infrequent words are useful to categorize or rank same type of document. For example when we search a term in a searc engine, it ranks results better if it has unique words.
+
+# $L2.8:$ Flowchart for max marks
+
+## Basic Flowchart for filtering
+<center>
+
+```mermaid
+flowchart TD
+st(start)
+ed(end)
+id1[Initialize]
+id2[Pick a Card X from Plile1]
+id3[Move X to Pile2]
+id4[Do something for No]
+id5[Do something for Yes]
+cond1{More cards\n in Pile 1?}
+cond2{Check for ?}
+
+st-->id1-->cond1-->|No|ed
+cond1-->|Yes|id2-->id3-->cond2-->|Yes|id5-->ed
+cond2-->|No|id4-->ed
+```
+
+</center>
+
+### We will try to edit it to find max Maths Marks
+<center>
+
+```mermaid
+flowchart TB
+st(start)
+ed(end)
+id1[max=0]
+id2[Pick a Card X from Plile1]
+id3[Move X to Pile2]
+id5[max=CardX.Maths]
+cond1{More cards\n in Pile 1?}
+cond2{CardX.Maths>max?}
+
+st-->id1-->cond1-->|No|ed
+cond1-->|Yes|id2-->id3-->cond2-->|Yes|id5-->ed
+cond2-->|No|cond1
+```
+
+</center>
+
+### Max of Maths marks: keep track of card
+<center>
+
+```mermaid
+flowchart TB
+st(start)
+ed(end)
+id1[max=0,maxCardId=-1]
+id2[Pick a Card X from Plile1]
+id3[Move X to Pile2]
+id5[max = CardX.Maths,\n maxCardId = CardX.id]
+cond1{More cards\n in Pile 1?}
+cond2{CardX.Maths>max?}
+
+st-->id1-->cond1-->|No|ed
+cond1-->|Yes|id2-->id3-->cond2-->|Yes|id5-->ed
+cond2-->|No|cond1
+```
+
+</center>
+
+### Max of Maths marks: keep track of card list
+<center>
+
+```mermaid
+flowchart TB
+st(start)
+ed(end)
+id1[max=0,maxCardId=-1]
+id2[Pick a Card X from Plile1]
+id3[Move X to Pile2]
+id5[max = CardX.Maths,\n maxCardId = CardX.id]
+id6[Append CardX.id to maxCardId]
+cond1{More cards\n in Pile 1?}
+cond2{CardX.Maths > max?}
+cond3{CardX.Maths = max?}
+   
+st-->id1-->cond1-->|No|ed
+cond1-->|Yes|id2-->id3-->cond2-->|Yes|id5-->ed
+cond2-->|No|cond3-->|No|cond1
+cond3-->|Yes|id6-->cond1
+```
+
+</center>
+
+# $L2.9:$ Introduction to pseudocodes
+
+## Floecharts
+
+- Pictorial representation of computational process
+  - Counting the number of cards
+- Node types
+  - Process
+  - Decision
+  - Terminal
+- Arrows indicate operation flow
+
+### Advantages
+
+- Visual representation of computation
+- Easy to understand
+
+### Disadvantages
+
+- Size: Complex process generate large flowcharts
+- Collaboration: Sharing pictures in editable format
+- Versions: Comparing changes between flowcharts
+
+## From pictures to text
+
+<center>
+    
+```mermaid
+flowchart
+st(Start)
+p1[Count=0]
+d1{More cards\n in pile 1?}
+ed(End)
+p2[Pick a card X from pile 1]
+p3[Move X to Pile 2]
+p4[Increment Count]
+
+st-->p1-->d1-->|Yes|p2-->p3-->p4-->d1-->|No|ed
+```
+
+</center>
+
+### Describe process in words
+
+$Step\ 0:$ Start <br>
+$Step\ 1:$ Initialize Count to 0 <br>
+$Step\ 2:$ Check cards in Pile 1 <br>
+$Step\ 3:$ If no more cards go to Step 8 <br>
+$Step\ 4:$ Pick a card X from Pile 1 <br>
+$Step\ 5:$ Move X to pile 2 <br>
+$Step\ 6:$ Increment Count <br>
+$Step\ 7:$ Go back to Step 2 <br>
+$Step\ 8:$ End <br>
+
+### Programming Language
+
+- Succinct notion for computational process
+- Better textual representation for
+  - Conditional execution
+    - $Step\ 3:$ If no more cards go to Step 8 <br>
+    - $Step\ 4:$ Pick a card X from Pile 1 <br>
+  - Repeated execution
+    - $Step\ 2:$ Check cards in Pile 1 <br>
+     $\vdots$
+    - $Step\ 7:$ Go back to Step 2 <br>
+
+## Pseudocode
+
+```
+Start
+Count = 0
+while (Pile 1 has more cards){
+  Pick a card X from Pile 1
+  Move X to Pile 2
+  Increment Count
+  }
+End
+```
+
+1. Assign a value to a variable
+2. Repeat Steps while condition holds
+3. Mark start and end of repeated block
+
+## Summery
+
+- Flowcharts are easy to read, visual descriptions of procedures
+- ...but they are cumbersome, hard to share or edit
+- Writing down steps in text is an alternative
+- Tune the notation to capture standard features
+  - Assigning values to variables
+  - Conditional execution
+  - Repeatead execution
+
+# $L2.10:$ Pseudocode for iteration with filtering
+
+## Counting cards
+
+```
+Start
+Count=0
+while(Pile 1 has more cards){
+  Pick a card X from Pile 1
+  Move X to Pile 2
+  Increment Count
+  }
+```
+
+- Will dispense with Start and End, Henceforth
+
+## Sum of Maths marks
+
+```
+Sum = 0
+while (Pile 1 has more cards){
+  Pick a card from Pile 1
+  Move X to Pile 2
+  Sum = Sum + X.Maths
+  }
+```
+
+- Update Sum: assignment statement
+  - Sum on rigt is current value
+  - Sum on left is updated value
+  - = is not mathematical equality
+- Incremnt: Count = Ccunt + 1
+- X.Maths: Maths marks in card X
+
+## Sum of Boys' Maths marks
+
+```
+Sum = 0
+while (Pile 1 has more cards){
+  Pick a card from Pile 1
+  Move X to Pile 2
+  if(X.Gender == M){
+    Sum = Sum + X.Maths
+  }
+}
+```
+- Conditional execution, once
+- Equality (==) vs assignment (=)
+
+## Sum of Boys' and Girls' Maths marks
+
+```
+BoySum = 0
+GirlSum = 0
+while (Pile 1 has more cards){
+  Pick a card from Pile 1
+  Move X to Pile 2
+  if(X.Gender == M){
+    BoySum = BoySum + X.Maths
+  }
+  else {
+GirlSum = GirlSum + X.Maths
+  }
+}
+```
+
+## Finding the maximum Maths marks
+
+```
+maxM = 0
+while (Pile 1 has more cards){
+  Pick a card from Pile 1
+  Move X to Pile 2
+  if(X.Maths > maxM){
+    maxM= Sum + X.Maths
+  }
+}
+```
+
+## FInding te card with maximum Maths marks
+
+```
+maxM = 0
+maxCard = -1
+while (Pile 1 has more cards){
+  Pick a card from Pile 1
+  Move X to Pile 2
+  if(X.Maths > maxM){
+    maxM = Sum + X.Maths
+    maxCard = X.Id
+  }
+}
+```
+
+## Summery
+
+- Assigment statement
+  - Count = 0
+  - Sum = Sum + X.Maths
+- Conditonal execution
+  - Once
+    - if(conditon){...}
+    - if(condition){...} else{}
+  - Repeateldy
+    - while condtion.
+Equality (==) vs assignment (=)
