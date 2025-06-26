@@ -9,20 +9,16 @@ Exiting a iteration basesd on specific condition
 
 ```mermaid
 flowchart TD
-    e[End]
-    op1[Found= False]
-    op2[Found= True]
-    op3[Other operations]
-    cond1{Another card and not\(Found\)}
-    cond2{Correct card}
+e[End]
+op1[Found= False]
+op2[Found= True]
+op3[Other operations]
+cond1{Another card and not Found}
+cond2{Correct card}
 
-    op1 --> cond1
-    cond1 -- Yes --> cond2
-    cond1 -- No --> e
-    cond2 -- Yes --> op2
-    cond2 -- No --> op3
-    op2 --> op3
-    op3 --> cond1
+op1-->cond1-->|Yes|cond2-->|Yes|op2-->op3-->cond1
+cond1-->|No|e
+cond2-->|No|op3
 ````
 
 # $L2.2:$ Local operations and max in a single iteration (Part 1)
