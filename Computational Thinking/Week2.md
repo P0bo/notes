@@ -13,7 +13,7 @@ flowchart TD
     op1[Found= False]
     op2[Found= True]
     op3[Other operations]
-    cond1{Another card and not(Found)}
+    cond1{Another card and not\(Found\)}
     cond2{Correct card}
 
     op1 --> cond1
