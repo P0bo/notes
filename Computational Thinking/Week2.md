@@ -1,11 +1,11 @@
 # $L2.1:$ Conditional termination in iteration
 
-Exiting a iteration basesd on specific condition 
+Exiting a iteration based on specific condition 
 
 - $Example:$ 
   - Suppose we are looking for specific cards which have Food and Apparel from shopping bills dataset and exit after that.
     - We would have to match food and apparel in the items category list and exit after that, so we don't need to iterate after we are done wit our objective and we can exit the loop.
-  - Suppose We want to find the fist verb in the third line. We have to keep track of line number first, When we reached the third line then we start looking for the verb and exit after we find the verb.
+  - Suppose We want to find the first verb in the third line. We have to keep track of line number first, When we reached the third line then we start looking for the verb and exit after we find the verb.
 
 ```mermaid
 flowchart TD
