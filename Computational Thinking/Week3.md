@@ -169,7 +169,7 @@ flowchart LR
 <center>
 
 |Word|it|was|monday|to|his|he|the|of|and|
-|-|-|-|-|-|-|-|-|-|
+|-|-|-|-|-|-|-|-|-|-|
 |Frequency|2|3|3|2|2|2|6|3|3|
 
 <table>
@@ -181,11 +181,11 @@ flowchart LR
   </thead>
   <tbody>
     <tr>
-      <td style="background-color:#0F02;width:50%">it, was,<br> to, his,<br> he, the,<br> of, and</td>
+      <td style="background-color:#0F02;width:50%">it, was, to, his, he, the, of, and</td>
       <td style="background-color:#F002;">monday</td>
     </tr>
     <tr>
-      <td style="background-color:#F002;">cane, long, thin, with,<br> class, very, at, work,<br> mood, into, get, after,<br> in, eyes, open</td>
+      <td style="background-color:#F002;">cane, long, thin, with, class, very, at, work, mood, into, get, after, in, eyes, open</td>
       <td style="background-color:#0F02;">Headmaster, teacher, Vedanayagam, fire-eyed, building, yellow, dismal, school, thought, shuddered, discipline, difficult, sunday, saturday, freedom, delicious, calendar, unpleasant, specially, considered, reluctant, Swaminathan, morning</td>
     </tr>
   </tbody>
