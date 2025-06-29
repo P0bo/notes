@@ -207,7 +207,7 @@ There is not much notes to write for this lecture. The lecture was mostly oral. 
 ```
 <details>
 <summary>Lecture 3.4</summary>
-<iframe width="100%" height="502" style="border-radius:15px" src="https://www.youtube.com/embed/SAxoh4BREbg" title="Three prizes problem" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=SAxoh4BREbg" target="_blank"><img src="https://img.youtube.com/vi/SAxoh4BREbg/0.jpg" alt="Three prizes problem" style="width:100%; border-radius:15px;"></a>
 </details>
 
 # $L3.5:$ Introduction to procedures and parameters
@@ -217,7 +217,7 @@ There is not much notes to write for this lecture. The lecture was mostly oral. 
 ```
 <details>
 <summary>Lecture 3.4</summary>
-<iframe width="100%" height="502" style="border-radius:15px" src="https://www.youtube.com/embed/_1oVAZOQDfI?list=PLZ2ps__7DhBYSzaAFqpyQKqmoni-EefS7" title="Introduction to procedures and parameters" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<a href="https://www.youtube.com/watch?v=_1oVAZOQDfI" target="_blank"><img src="https://img.youtube.com/vi/_1oVAZOQDfI/0.jpg" alt="Introduction to procedures and parameters" style="width:100%; border-radius:15px;"></a>
 </details>
 
 # $L3.6:$ Pseudocode for procedures and parameters (Part 1)
@@ -580,6 +580,7 @@ End SubjectTopper
 ```
 - Value returned is a Boolean --- True or False.
 - Typically, we would call this as follows:<br> <text style="background-color:#f505;border-radius:3px">`if(SubjectTopper(X, M, C, P) == True)`
+- Since its boolean, we can simply call this as:<br> <text style="background-color:#5f05;border-radius:3px">`if(SubjectTopper(X, M, C, P))`
 
 ## Boundary conditions
 
