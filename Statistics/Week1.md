@@ -148,17 +148,17 @@ We assume data is available and our objective is to do a statistical analysis of
 |True zero exists -- ratios possible|$Ratio\ Scale$|Age, Height, Height, Marks, etc.|
 -|-|-
 
-### $\uarr$
+### $\uparrow$
 
 |No absolute zero|$Interval\ Scale$|Temperature, GPA, etc.|
 -|-|-
 
-### $\uarr$
+### $\uparrow$
 
 |Named + Ordered|$Ordinal\ Scale$|Ranking, Rating, etc.|
 -|-|-
 
-### $\uarr$
+### $\uparrow$
 
 |Named|$Nominal Scale$| Name, Blood group, ID number, etc.|
 -|-|-
